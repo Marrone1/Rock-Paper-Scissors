@@ -5,7 +5,6 @@ Display message with the result (you win, you lose, draw)
 */
 
 
-
 function getComputerChoice(){
     let options = ["rock", "paper", "scissors"];
     teste = Math.floor(Math.random()*3);
@@ -13,36 +12,37 @@ function getComputerChoice(){
     return computerChoice
 }
 
-function getPlayerChoice(){
-    const playerChoice = prompt("Please, choose between Rock, Paper or Scissors: ")
-    return playerChoice
-}
-function singleRound(playerSelection, computerSelection){
 
-    if (playerSelection === computerSelection){
-        alert("Draw! You both got " + playerSelection);
-    } else if (playerSelection === "rock" && computerSelection === "paper"){
-        alert("You Lose! Paper beats Rock.")
-    } else if (playerSelection === "rock" && computerSelection === "scissors"){
-        alert("You Win! Rock beats Scissors.")
-    } else if (playerSelection === "paper" && computerSelection === "rock"){
-        alert("You Win! Paper beats Rock.")
-    } else if (playerSelection === "paper" && computerSelection === "scissors"){
-        alert("You Lose! Scissors beats Paper.")
-    } else if (playerSelection === "scissors" && computerSelection === "paper"){
-        alert("You Win! Scissors beats Paper.")
-    } else if (playerSelection === "scissors" && computerSelection === "rock"){
-        alert("You Lose! Rock beats Scissors.")
+function getHumanChoice(){
+    const humanChoice = prompt("Choose an option between rock, paper and scissors: ");
+    return humanChoice
+}
+
+const humanScore = 0;
+const computerScore = 0;
+
+function playRound(humanChoice, computerChoice){
+    if(humanChoice === computerChoice){
+        alert("Draw, you both chose " + humanChoice);
+    } else if (humanChoice === "rock" && computerChoice === "paper"){
+        alert("You lose! Paper beats rock.");
+    } else if (humanChoice === "rock" && computerChoice === "scissors"){
+        alert("You won! Rock beats scissors.");
+    } else if (humanChoice === "paper" && computerChoice === "scissors"){
+        alert("You lose! Scissors beats paper.");
+    } else if (humanChoice === "paper" && computerChoice === "rock"){
+        alert("You won! Paper beats rock.");
+    } else if (humanChoice === "scissors" && computerChoice === "rock"){
+        alert("You lose! Rock beats scissors");
+    } else{
+        alert("You won! Scissors beats paper.");
     }
 
 }
+
+const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-const playerSelection = getPlayerChoice();
-console.log(singleRound(playerSelection,computerSelection))
+console.log(playRound(humanSelection,computerSelection));
 
 console.log(computerSelection);
-console.log(playerSelection);
-
-
-
-
+console.log(humanSelection);
